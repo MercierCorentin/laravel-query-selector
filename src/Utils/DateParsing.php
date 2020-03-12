@@ -18,7 +18,11 @@ class DateParsing
             } else
                 return Carbon::parse($date);
         } catch (\Exception $e) {
-            throw new DateParsingException('The given date can not be parsed and recognized. Try using a valid timestamp or an YYYY-mm-dd format date');
+            if($format){
+                throw new DateParsingException('The given date can not be parsed and recognized. Try checking your format');
+            }else{
+                throw new DateParsingException('The given date can not be parsed and recognized. Try using YYYY-mm-dd format date or give format in second argument');
+            }
         }
     }
 
