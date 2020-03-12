@@ -33,7 +33,7 @@ class DateParsing
 
         if ($carbonDate1 > $carbonDate2)
             throw new DateParsingException('Incorrect interval, the second date must happen after the first one');
-        else if (!$allowEqualValues && $carbonDate1 === $carbonDate2)
+        else if (!$allowEqualValues && $carbonDate1 == $carbonDate2)
             throw new DateParsingException('An interval must contain two different dates');
 
         return [
